@@ -7,6 +7,32 @@ img {
     object-fit: cover;
 }
 
+/* For WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 8px;
+    /* Thin scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #2e2e2e;
+    /* Track color (dark gray) */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b0b0b0;
+    /* Thumb color (lighter gray) */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    /* Thin scrollbar */
+    scrollbar-color: #b0b0b0 #2e2e2e;
+    /* Thumb color (lighter gray) and Track color (dark gray) */
+}
+
 .blurred-background {
     background-color: rgba(255, 255, 255, 0.1);
 }
