@@ -34,6 +34,7 @@ img {
 
 .scrollable-checkbox-group {
     max-height: 200px;
+    /* Adjust the height as needed */
     overflow-y: auto;
 }
 

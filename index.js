@@ -13,7 +13,6 @@ import { fileURLToPath } from 'url';
 import fs from 'fs/promises';
 import { Server } from 'socket.io';
 import http from 'http';
-import favicon from 'serve-favicon';
 
 const app = express();
 const saltRounds = 10;
@@ -82,9 +81,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
-
-// Use the favicon middleware
-app.use(favicon(path.join(__dirname, 'public', 'images/pulse_logo.png')));
 
 function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
@@ -538,8 +534,8 @@ app.post("/create-group", upload.single('picture'), ensureAuthenticated, async (
 
 app.post('/add-members', ensureAuthenticated, async (req, res) => {
     const { chat_id, ...members } = req.body;
-    console.log("chat_id: ", chat_id);
-    console.log("members: ", members);
+    // console.log("chat_id: ", chat_id);
+    // console.log("members: ", members);
     const memberIds = Object.keys(members).map(key => key.replace('member_', ''));
     const insertIntoParticipantsQuery = `
         INSERT INTO participants (chat_id, user_id) VALUES ($1, $2);
